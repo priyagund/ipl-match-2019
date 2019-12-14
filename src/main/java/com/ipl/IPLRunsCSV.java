@@ -15,8 +15,8 @@ public class IPLRunsCSV
     @CsvBindByName(column = "50", required = true)
     private int fifty;
     @CsvBindByName(column = "4s", required = true)
-    private int NoOffours;
+    private int noOffours;
     @CsvBindByName(column = "6s", required = true)
-    private int NoOfSixs;
+    private int noOfSixs;
 
 }

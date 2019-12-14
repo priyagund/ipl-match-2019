@@ -2,7 +2,7 @@ package com.ipl;
  public class IPLMatchException extends Exception{
      
      enum ExceptionType {
-        FILE_NOT_FOUND;
+        FILE_NOT_FOUND,SUME_ERROR_IN_FILE;
      }
      
      ExceptionType type;

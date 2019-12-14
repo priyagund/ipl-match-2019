@@ -2,7 +2,6 @@ package com.ipl;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -12,7 +11,6 @@ import java.util.stream.StreamSupport;
 
 public class IPLMatch2019
 {
-
     public int loadIplPlayersRecord(String ipl_runs_record_file) throws IPLMatchException {
         try {
             Reader reader = Files.newBufferedReader(Paths.get(ipl_runs_record_file)); CsvToBeanBuilder<IPLRunsCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
@@ -26,6 +24,9 @@ public class IPLMatch2019
 
         } catch (IOException e) {
             throw new IPLMatchException(e.getMessage(),IPLMatchException.ExceptionType.FILE_NOT_FOUND);
+        }
+        catch(RuntimeException e){
+            throw new IPLMatchException(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE);
         }
 
     }

@@ -31,4 +31,16 @@ public class IPLMatch2019Test
             Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE,e.type);
         }
     }
+
+    @Test
+    public void givenLoadMatchRunRecord_ifEmptyFile_shouldThrowException()
+    {
+        try {
+            IPLMatch2019 iplMatch2019=new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRecord("");
+        } catch (IPLMatchException e) {
+            Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE,e.type);
+        }
+    }
+
 }

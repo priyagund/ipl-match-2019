@@ -1,5 +1,6 @@
-package com.ipl;
+package com.ipl2019;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,6 +10,7 @@ public class IPLMatch2019Test
   private String WRONG_FILE_PATH="/home/admin165/Downloads/CensusAnalyser(2)/CensusAnalyser/src/test/resources/USCensusData.csv";
   private String INCORRECT_HEADER="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IncrrectHeader.csv";
   private String INCORRECT_DELIMETER="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IncorrectDelimiter.csv";
+
   @Test
     public void givenLoadIPLRunsRecord_ifLoded_shouldReturnResult()
     {
@@ -65,4 +67,18 @@ public class IPLMatch2019Test
     }
 
     }
+
+   @Test
+    public void givenIPLRunRecordsFile_sortedByGoodbatsMan_shouldReturnResult()
+    {
+        try {
+            IPLMatch2019 iplMatch2019=new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            String sortedCensusData = iplMatch2019.sortedByTopBattingRate(IPLField.AVERAGE);
+            IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCensusData,IPLRunsCSV[].class);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

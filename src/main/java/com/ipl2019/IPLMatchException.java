@@ -1,8 +1,8 @@
-package com.ipl;
+package com.ipl2019;
  public class IPLMatchException extends Exception{
-     
+
      enum ExceptionType {
-        FILE_NOT_FOUND,SUME_ERROR_IN_FILE;
+        FILE_NOT_FOUND,SUME_ERROR_IN_FILE,NO_DATA_FOUND;
      }
      
      ExceptionType type;
@@ -15,5 +15,10 @@ package com.ipl;
          super(message);
          this.type = type;
      }
+     public IPLMatchException(String message,String name) {
+         super(message);
+         this.type =ExceptionType.valueOf(name);
+     }
+
  }
 

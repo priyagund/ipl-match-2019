@@ -12,13 +12,13 @@ public class IPLRunsDao
     public double strikingRate;
 
     public IPLRunsDao(IPLRunsCSV iplRunsCsv) {
-        this.player = iplRunsCsv.player;
         if (iplRunsCsv.average.contains("-")) {
             this.average = 0;
         }
         if (!iplRunsCsv.average.contains("-")) {
             this.average = Double.parseDouble(iplRunsCsv.average);
         }
+        this.player = iplRunsCsv.player;
         this.strikingRate =Double.parseDouble(iplRunsCsv.strikingRate);
         this.century = Integer.parseInt(iplRunsCsv.century);
         this.fifty = Integer.parseInt(iplRunsCsv.fifty);

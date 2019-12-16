@@ -69,17 +69,60 @@ public class IPLMatch2019Test
     }
 
    @Test
-    public void givenIPLRunRecordsFile_sortedByGoodbatsMan_shouldReturnResult()
+    public void givenIPLRunRecordsFile_sortedByLowestBatsMan_shouldReturnResult()
     {
         try {
             IPLMatch2019 iplMatch2019=new IPLMatch2019();
             iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
-            String sortedCensusData = iplMatch2019.sortedByTopBattingRate(IPLField.AVERAGE);
-            IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCensusData,IPLRunsCSV[].class);
+            String sortedCSVData = iplMatch2019.sortedByTopBattingRate(IPLField.AVERAGE);
+            IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
             Assert.assertEquals("Ishant Sharma",iplRunsCSVS[0].player);
         } catch (IPLMatchException e) {
             e.printStackTrace();
         }
     }
 
+    @Test
+    public void givenIPLRunRecordFile_sortedTopBatsMan_shouldReturnResult()
+    {
+        try {
+            IPLMatch2019 iplMatch2019=new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            String sortedCSVData = iplMatch2019.sortedByTopBattingRate(IPLField.AVERAGE);
+            IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
+            Assert.assertEquals("MS Dhoni",iplRunsCSVS[iplRunsCSVS.length-1].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Test
+    public void givenIPLRunsRecordFile_sortedByLowestStrikingRate_shouldReturnResult(){
+        try {
+            IPLMatch2019 iplMatch2019=new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            String sortedCSVData=iplMatch2019.sortedByTopStrikingRate(IPLField.STRIKING_RATE);
+            System.out.println(sortedCSVData);
+            IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
+            Assert.assertEquals("Bhuvneshwar Kumar",iplRunsCSVS[0].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenIPLRundRecordFile_sortedByTopStrikingRate_shouldReturnResult()
+    {
+        try {
+            IPLMatch2019 iplMatch2019=new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            String sortedCSVData=iplMatch2019.sortedByTopStrikingRate(IPLField.STRIKING_RATE);
+            System.out.println(sortedCSVData);
+            IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
+            Assert.assertEquals("Ishant Sharma",iplRunsCSVS[iplRunsCSVS.length-1].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
 }

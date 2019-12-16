@@ -16,8 +16,8 @@ import static java.util.stream.Collectors.toCollection;
 
 public class IPLMatch2019 {
 
-    Map<String, IPLRunsDao> iplRunsCSVMap = null;
-    Map<IPLField, Comparator<IPLRunsDao>> iplRunsMapComparator = null;
+    Map<String, IPLRunsDao> iplRunsCSVMap;
+    Map<IPLField, Comparator<IPLRunsDao>> iplRunsMapComparator;
 
     public IPLMatch2019() {
         this.iplRunsCSVMap = new HashMap<>();
@@ -25,7 +25,7 @@ public class IPLMatch2019 {
         this.iplRunsCSVMap = new HashMap<>();
         this.iplRunsCSVMap = new HashMap<>();
         iplRunsMapComparator.put(IPLField.AVERAGE, Comparator.comparing(iplrun->iplrun.average));
-
+        iplRunsMapComparator.put(IPLField.STRIKING_RATE,Comparator.comparing(iplrun->iplrun.strikingRate));
     }
 
     public int loadIplPlayersRecord(String ipl_runs_record_file) throws IPLMatchException {
@@ -49,6 +49,17 @@ public class IPLMatch2019 {
 
 
     public String sortedByTopBattingRate(IPLField fieldName) throws IPLMatchException {
+        if (iplRunsCSVMap == null || iplRunsCSVMap.size() == 0) {
+            throw new IPLMatchException("no ipl data", IPLMatchException.ExceptionType.NO_DATA_FOUND);
+        }
+        ArrayList iplList = iplRunsCSVMap.values().stream()
+                .sorted(this.iplRunsMapComparator.get(fieldName))
+                .collect(toCollection(ArrayList::new));
+        String sortedIplRunsJson = new Gson().toJson(iplList);
+        return sortedIplRunsJson;
+    }
+
+    public String sortedByTopStrikingRate(IPLField fieldName) throws IPLMatchException {
         if (iplRunsCSVMap == null || iplRunsCSVMap.size() == 0) {
             throw new IPLMatchException("no ipl data", IPLMatchException.ExceptionType.NO_DATA_FOUND);
         }

@@ -2,5 +2,5 @@ package com.ipl2019;
 
 public enum IPLField
 {
-  AVERAGE,
+  AVERAGE,STRIKING_RATE;
 }

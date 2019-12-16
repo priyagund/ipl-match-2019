@@ -28,6 +28,9 @@ public class IPLMatch2019 {
         Comparator<IPLRunsDao> fourSixsComparator= new SortedOnMaxFoursAndSixes();
         Comparator<IPLRunsDao> maxStrikingRateWithMaxSixesAndMaxFours= fourSixsComparator.thenComparing(strikingRateComparator);
         this.iplRunsMapComparator.put(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS, maxStrikingRateWithMaxSixesAndMaxFours);
+        Comparator<IPLRunsDao> maxAveargeComparator=Comparator.comparing(iplRuns->iplRuns.average);
+        Comparator<IPLRunsDao>maxStrikingRateWithMaxAverage=maxAveargeComparator.thenComparing(strikingRateComparator);
+        this.iplRunsMapComparator.put(IPLField.MAX_STRIKINRATE_MAX_AVERAGE, maxStrikingRateWithMaxAverage);
     }
 
     public int loadIplPlayersRecord(String ipl_runs_record_file) throws IPLMatchException {

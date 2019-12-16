@@ -21,10 +21,10 @@ public class IPLMatch2019 {
     public IPLMatch2019() {
         this.iplRunsCSVMap = new HashMap<>();
         this.iplRunsMapComparator = new HashMap<>();
-        this.iplRunsCSVMap = new HashMap<>();
-        this.iplRunsCSVMap = new HashMap<>();
-        iplRunsMapComparator.put(IPLField.AVERAGE, Comparator.comparing(iplrun->iplrun.average));
-        iplRunsMapComparator.put(IPLField.STRIKING_RATE,Comparator.comparing(iplrun->iplrun.strikingRate));
+        this.iplRunsMapComparator.put(IPLField.AVERAGE, Comparator.comparing(iplrun->iplrun.average));
+        this.iplRunsMapComparator.put(IPLField.STRIKING_RATE,Comparator.comparing(iplrun->iplrun.strikingRate));
+        this.iplRunsMapComparator.put(IPLField.MAX_SIX_AND_FOURS,new SortedOnMaxFoursAndSixes());
+
     }
 
     public int loadIplPlayersRecord(String ipl_runs_record_file) throws IPLMatchException {

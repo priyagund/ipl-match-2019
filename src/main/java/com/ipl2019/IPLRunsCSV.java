@@ -7,21 +7,21 @@ public class IPLRunsCSV
     @CsvBindByName(column = "PLAYER", required = true)
     public String player;
     @CsvBindByName(column = "Runs", required = true)
-    public int runs;
+    public String runs;
     @CsvBindByName(column = "100", required = true)
-    public int century;
+    public String century;
     @CsvBindByName(column = "50", required = true)
-    public int fifty;
+    public String fifty;
     @CsvBindByName(column = "4s", required = true)
-    public int noOffours;
+    public String noOffours;
     @CsvBindByName(column = "6s", required = true)
-    public int noOfSixs;
+    public String noOfSixs;
     @CsvBindByName(column = "Avg", required = true)
     public String average;
     @CsvBindByName(column = "SR", required = true)
-    public int strikingRate;
+    public String strikingRate;
     @CsvBindByName(column = "Mat", required = true)
-    public int match;
+    public String match;
 
     public IPLRunsCSV() {
 

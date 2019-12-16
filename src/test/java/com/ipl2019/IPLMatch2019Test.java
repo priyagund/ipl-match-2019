@@ -76,6 +76,7 @@ public class IPLMatch2019Test
             iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
             String sortedCensusData = iplMatch2019.sortedByTopBattingRate(IPLField.AVERAGE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCensusData,IPLRunsCSV[].class);
+            Assert.assertEquals("Ishant Sharma",iplRunsCSVS[0].player);
         } catch (IPLMatchException e) {
             e.printStackTrace();
         }

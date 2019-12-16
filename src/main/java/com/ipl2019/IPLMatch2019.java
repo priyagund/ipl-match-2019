@@ -1,8 +1,10 @@
 package com.ipl2019;
 
 import com.google.gson.Gson;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
+import csvbuilder.CSVBuilderException;
+import csvbuilder.CSVBuilderFactory;
+import csvbuilder.ICSVBuilder;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -27,25 +29,24 @@ public class IPLMatch2019 {
     }
 
     public int loadIplPlayersRecord(String ipl_runs_record_file) throws IPLMatchException {
-        try {
-            Reader reader = Files.newBufferedReader(Paths.get(ipl_runs_record_file));
-            CsvToBeanBuilder<IPLRunsCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(IPLRunsCSV.class);
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<IPLRunsCSV> csvToBean = csvToBeanBuilder.build();
-            Iterator<IPLRunsCSV> censusCSVIterator = csvToBean.iterator();
-            Iterable<IPLRunsCSV> csvIterable = () -> censusCSVIterator;
-            StreamSupport.stream(csvIterable.spliterator(), false)
+
+            try (Reader reader = Files.newBufferedReader(Paths.get(ipl_runs_record_file));) {
+                ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+                Iterator<IPLRunsCSV> csvFileIterator = csvBuilder.getCSVFileIterator(reader, IPLRunsCSV.class);
+                Iterable<IPLRunsCSV> csvIterable = () -> csvFileIterator;
+                StreamSupport.stream(csvIterable.spliterator(), false)
                     .map(IPLRunsCSV.class::cast)
-                    .forEach(iplMostRunsCSV -> iplRunsCSVMap.put(iplMostRunsCSV.player, new IPLRunsDao(iplMostRunsCSV)));
-            return iplRunsCSVMap.size();
-        } catch (IOException e) {
-            throw new IPLMatchException(e.getMessage(), IPLMatchException.ExceptionType.FILE_NOT_FOUND);
-        } catch (RuntimeException e) {
-            throw new IPLMatchException(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE);
+                    .forEach(iplRunsCSV -> iplRunsCSVMap.put(iplRunsCSV.player, new IPLRunsDao(iplRunsCSV)));
+                return iplRunsCSVMap.size();
+        } catch (IOException | CSVBuilderException e) {
+                throw new IPLMatchException(e.getMessage(),
+                        IPLMatchException.ExceptionType.FILE_NOT_FOUND);
+            } catch (RuntimeException e) {
+                throw new IPLMatchException(e.getMessage(),
+                        IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE);
+            }
         }
 
-    }
 
     public String sortedByTopBattingRate(IPLField fieldName) throws IPLMatchException {
         if (iplRunsCSVMap == null || iplRunsCSVMap.size() == 0) {

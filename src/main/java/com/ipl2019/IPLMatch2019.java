@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import csvbuilder.CSVBuilderException;
 import csvbuilder.CSVBuilderFactory;
 import csvbuilder.ICSVBuilder;
-
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -47,8 +46,7 @@ public class IPLMatch2019 {
             }
         }
 
-
-    public String sortedByTopBattingRate(IPLField fieldName) throws IPLMatchException {
+    public String sortedByGivenField(IPLField fieldName) throws IPLMatchException {
         if (iplRunsCSVMap == null || iplRunsCSVMap.size() == 0) {
             throw new IPLMatchException("no ipl data", IPLMatchException.ExceptionType.NO_DATA_FOUND);
         }
@@ -59,15 +57,5 @@ public class IPLMatch2019 {
         return sortedIplRunsJson;
     }
 
-    public String sortedByTopStrikingRate(IPLField fieldName) throws IPLMatchException {
-        if (iplRunsCSVMap == null || iplRunsCSVMap.size() == 0) {
-            throw new IPLMatchException("no ipl data", IPLMatchException.ExceptionType.NO_DATA_FOUND);
-        }
-        ArrayList iplList = iplRunsCSVMap.values().stream()
-                .sorted(this.iplRunsMapComparator.get(fieldName))
-                .collect(toCollection(ArrayList::new));
-        String sortedIplRunsJson = new Gson().toJson(iplList);
-        return sortedIplRunsJson;
-    }
 }
 

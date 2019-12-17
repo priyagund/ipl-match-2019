@@ -31,6 +31,10 @@ public class IPLMatch2019 {
         Comparator<IPLRunsDao> maxAveargeComparator=Comparator.comparing(iplRuns->iplRuns.average);
         Comparator<IPLRunsDao>maxStrikingRateWithMaxAverage=maxAveargeComparator.thenComparing(strikingRateComparator);
         this.iplRunsMapComparator.put(IPLField.MAX_STRIKINRATE_MAX_AVERAGE, maxStrikingRateWithMaxAverage);
+        Comparator<IPLRunsDao>maxRunsComparator=Comparator.comparing(iplRuns->iplRuns.runs);
+        Comparator<IPLRunsDao>maxRunsWithBestAverage=maxRunsComparator.thenComparing(maxAveargeComparator);
+        this.iplRunsMapComparator.put(IPLField.MAX_RUNS_WITH_BEST_AVERAGE,maxRunsWithBestAverage);
+
     }
 
     public int loadIplPlayersRecord(String ipl_runs_record_file) throws IPLMatchException {

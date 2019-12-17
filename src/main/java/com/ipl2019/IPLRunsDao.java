@@ -10,6 +10,7 @@ public class IPLRunsDao
     public int noOfFours;
     public int noOfSixs;
     public double strikingRate;
+    public int runs;
 
     public IPLRunsDao(IPLRunsCSV iplRunsCsv) {
         if (iplRunsCsv.average.contains("-")) {
@@ -24,6 +25,7 @@ public class IPLRunsDao
         this.fifty = Integer.parseInt(iplRunsCsv.fifty);
         this.noOfSixs = Integer.parseInt(iplRunsCsv.noOfSixs);
         this.noOfFours = Integer.parseInt(iplRunsCsv.noOffours);
+        this.runs=Integer.parseInt(iplRunsCsv.runs);
     }
    }
 

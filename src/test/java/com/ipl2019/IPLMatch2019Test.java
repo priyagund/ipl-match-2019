@@ -155,7 +155,6 @@ public class IPLMatch2019Test {
         } catch (IPLMatchException e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
@@ -163,7 +162,7 @@ public class IPLMatch2019Test {
     {
         try {
             IPLMatch2019 iplMatch2019=new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE );
+            iplMatch2019.loadIplPlayersRecord(FILE_FOR_STRIKING_RATE_AND_FOURS);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS);
             System.out.println(sortedCSVData);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -203,6 +202,33 @@ public class IPLMatch2019Test {
         }
     }
 
+    @Test
+    public void givenIPLRunsRecordFile_sortedWithMaximumRunsWithBestAverage_shouldReturnPlayer()
+    {
+        try {
+            IPLMatch2019 iplMatch2019=new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE );
+            String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_RUNS_WITH_BEST_AVERAGE);
+            System.out.println(sortedCSVData);
+            IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
+            Assert.assertEquals("David Warner",iplRunsCSVS[iplRunsCSVS.length-1].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
 
-
+    @Test
+    public void givenIPLRunsRecordFile_sortedWithMinimumRunsWithWorstAverage_shouldReturnPlayer()
+    {
+        try {
+            IPLMatch2019 iplMatch2019=new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE );
+            String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_RUNS_WITH_BEST_AVERAGE);
+            System.out.println(sortedCSVData);
+            IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
+            Assert.assertEquals("Tim Southee",iplRunsCSVS[0].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
 }

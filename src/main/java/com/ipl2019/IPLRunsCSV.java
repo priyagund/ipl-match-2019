@@ -27,7 +27,7 @@ public class IPLRunsCSV
 
     }
 
-    public IPLRunsCSV(IPLRunsDao iplRunsDao) {
+    public IPLRunsCSV(IPLDao iplRunsDao) {
 
     }
 }

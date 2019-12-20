@@ -10,11 +10,14 @@ public class IPLMatch2019Test {
     private String INCORRECT_HEADER = "/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IncrrectHeader.csv";
     private String INCORRECT_DELIMETER = "/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IncorrectDelimiter.csv";
     private String FILE_FOR_STRIKING_RATE_AND_FOURS="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL_2019_Check_StrikingRate_And_NoOfFours.csv";
+    private String IPL_WKTS_FILE_PATH="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL2019FactsheetMostWkts.csv";
+    private String IPL_WKTS_SAMPLE_FILE="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL_Wkts_Sample_file_path.csv";
+
     @Test
     public void givenLoadIPLRunsRecord_ifLoded_shouldReturnResult() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            int noOfPlayers = iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            int noOfPlayers = iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
             Assert.assertEquals(100, noOfPlayers);
         } catch (IPLMatchException e) {
             e.printStackTrace();
@@ -25,7 +28,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunRecordFile_ifIncorrectFIle_shouldThrowException() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(WRONG_FILE_PATH);
+            iplMatch2019.loadIplPlayersRunsRecord(WRONG_FILE_PATH);
         } catch (IPLMatchException e) {
             Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE, e.type);
         }
@@ -35,7 +38,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunRecordFile_ifEmptyFile_shouldThrowException() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord("");
+            iplMatch2019.loadIplPlayersRunsRecord("");
         } catch (IPLMatchException e) {
             Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE, e.type);
         }
@@ -45,7 +48,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunRecordFile_ifIncorrctHeader_shouldThrowException() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(INCORRECT_HEADER);
+            iplMatch2019.loadIplPlayersRunsRecord(INCORRECT_HEADER);
         } catch (IPLMatchException e) {
             Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE, e.type);
         }
@@ -55,7 +58,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunRecordFile_ifIncorrectDelimeter_shouThrownException() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(INCORRECT_DELIMETER);
+            iplMatch2019.loadIplPlayersRunsRecord(INCORRECT_DELIMETER);
         } catch (IPLMatchException e) {
             Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE, e.type);
         }
@@ -66,7 +69,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunRecordsFile_sortedByLowestBatsMan_shouldReturnPlayer() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.AVERAGE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
             Assert.assertEquals("Ishant Sharma", iplRunsCSVS[0].player);
@@ -79,7 +82,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunRecordFile_sortedTopBatsMan_shouldReturnPlayer() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.AVERAGE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
             Assert.assertEquals("MS Dhoni", iplRunsCSVS[iplRunsCSVS.length - 1].player);
@@ -93,7 +96,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunsRecordFile_sortedByLowestStrikingRate_shouldReturnPlayer() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
             Assert.assertEquals("Bhuvneshwar Kumar", iplRunsCSVS[0].player);
@@ -106,7 +109,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunsRecordFile_sortedByTopStrikingRate_shouldReturnPlayer() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
             Assert.assertEquals("Ishant Sharma", iplRunsCSVS[iplRunsCSVS.length - 1].player);
@@ -119,7 +122,7 @@ public class IPLMatch2019Test {
     public void givenIPLRunsRecordFile_sortedByMaximumSixexAndFours_shouldReturnPlayer() {
         try {
             IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAX_SIX_AND_FOURS);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
             Assert.assertEquals("Andre Russell", iplRunsCSVS[iplRunsCSVS.length-1].player);
@@ -133,7 +136,7 @@ public class IPLMatch2019Test {
     {
         try{
         IPLMatch2019 iplMatch2019 = new IPLMatch2019();
-        iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+        iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
         String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAX_SIX_AND_FOURS);
         IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
         Assert.assertEquals("Tim Southee", iplRunsCSVS[0].player);
@@ -147,7 +150,7 @@ public class IPLMatch2019Test {
     {
         try {
             IPLMatch2019 iplMatch2019=new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE);
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS);
             System.out.println(sortedCSVData);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -162,7 +165,7 @@ public class IPLMatch2019Test {
     {
         try {
             IPLMatch2019 iplMatch2019=new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(FILE_FOR_STRIKING_RATE_AND_FOURS);
+            iplMatch2019.loadIplPlayersRunsRecord(FILE_FOR_STRIKING_RATE_AND_FOURS);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS);
             System.out.println(sortedCSVData);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -177,7 +180,7 @@ public class IPLMatch2019Test {
     {
         try {
             IPLMatch2019 iplMatch2019=new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE );
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE );
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_STRIKINRATE_MAX_AVERAGE);
             System.out.println(sortedCSVData);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -192,7 +195,7 @@ public class IPLMatch2019Test {
     {
         try {
             IPLMatch2019 iplMatch2019=new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE );
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE );
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_STRIKINRATE_MAX_AVERAGE);
             System.out.println(sortedCSVData);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -207,7 +210,7 @@ public class IPLMatch2019Test {
     {
         try {
             IPLMatch2019 iplMatch2019=new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE );
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE );
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_RUNS_WITH_BEST_AVERAGE);
             System.out.println(sortedCSVData);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -218,17 +221,31 @@ public class IPLMatch2019Test {
     }
 
     @Test
-    public void givenIPLRunsRecordFile_sortedWithMinimumRunsWithWorstAverage_shouldReturnPlayer()
-    {
+    public void givenIPLRunsRecordFile_sortedWithMinimumRunsWithWorstAverage_shouldReturnPlayer() {
         try {
-            IPLMatch2019 iplMatch2019=new IPLMatch2019();
-            iplMatch2019.loadIplPlayersRecord(IPL_RUNS_RECORD_FILE );
-            String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_RUNS_WITH_BEST_AVERAGE);
+            IPLMatch2019 iplMatch2019 = new IPLMatch2019();
+            iplMatch2019.loadIplPlayersRunsRecord(IPL_RUNS_RECORD_FILE);
+            String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAX_RUNS_WITH_BEST_AVERAGE);
             System.out.println(sortedCSVData);
-            IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
-            Assert.assertEquals("Tim Southee",iplRunsCSVS[0].player);
+            IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
+            Assert.assertEquals("Tim Southee", iplRunsCSVS[0].player);
         } catch (IPLMatchException e) {
             e.printStackTrace();
         }
     }
-}
+
+        @Test
+        public void givenLoadIPLWktsRecord_ifLoded_shouldReturnResult() {
+        try {
+            IPLMatch2019 iplMatch2019 = new IPLMatch2019();
+            int noOfPlayers = iplMatch2019.loadIplPlayersWktsRecord(IPL_WKTS_FILE_PATH);
+            System.out.println(noOfPlayers);
+            Assert.assertEquals(99, noOfPlayers);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
+
+    }
+
+

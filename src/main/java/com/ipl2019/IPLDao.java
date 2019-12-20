@@ -16,6 +16,7 @@ public class IPLDao
     public int fiveWkts;
 
     public IPLDao(IPLRunsCSV iplRunsCsv) {
+        this.average=Double.parseDouble(iplRunsCsv.average);
         this.player = iplRunsCsv.player;
         this.strikingRate =Double.parseDouble(iplRunsCsv.strikingRate);
         this.century = Integer.parseInt(iplRunsCsv.century);
@@ -27,6 +28,7 @@ public class IPLDao
     }
 
     public IPLDao(IPLWktsCSV iplWktsCSV) {
+
         this.player = iplWktsCSV.player;
         this.wkts=Integer.parseInt(iplWktsCSV.wkts);
         this.fourWkts=Integer.parseInt(iplWktsCSV.fourWkts);

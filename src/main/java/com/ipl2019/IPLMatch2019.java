@@ -20,7 +20,12 @@ public class IPLMatch2019 {
         this.iplMapComparator.put(IPLField.STRIKING_RATE,Comparator.comparing(iplrun->iplrun.strikingRate));
         this.iplMapComparator.put(IPLField.MAX_SIX_AND_FOURS,new SortedOnMaxFoursAndSixes());
         this.iplMapComparator.put(IPLField.ECONOMY,Comparator.comparing(iplRun->iplRun.economy));
+        Comparator<IPLDao>fourWkts=Comparator.comparing(iplRun->iplRun.fourWkts);
+        Comparator<IPLDao>fiveWkts=Comparator.comparing(iplRuns->iplRuns.fiveWkts);
+        Comparator<IPLDao>max4Wkts5Wkts=fourWkts.thenComparing(fiveWkts);
         Comparator<IPLDao> strikingRateComparator = Comparator.comparing(iplrun -> iplrun.strikingRate);
+        Comparator<IPLDao>maxStrikingRateWith4Wkts5Wkts=strikingRateComparator.thenComparing(max4Wkts5Wkts);
+        this.iplMapComparator.put(IPLField.STRIKING_RATE_FOURWKTS_FIVEWKTS,maxStrikingRateWith4Wkts5Wkts);
         Comparator<IPLDao> fourSixsComparator= new SortedOnMaxFoursAndSixes();
         Comparator<IPLDao> maxStrikingRateWithMaxSixesAndMaxFours= fourSixsComparator.thenComparing(strikingRateComparator);
         this.iplMapComparator.put(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS, maxStrikingRateWithMaxSixesAndMaxFours);

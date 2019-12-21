@@ -37,6 +37,9 @@ public class IPLMatch2019 {
         this.iplMapComparator.put(IPLField.MAX_RUNS_WITH_BEST_AVERAGE,maxRunsWithBestAverage);
         Comparator<IPLDao>maxBowlingAverageWithBestStrikingRate=strikingRateComparator.thenComparing(maxAveargeComparator);
         this.iplMapComparator.put(IPLField.GREAT_BOWLING_AVERAGE_BEST_STRIKING_RATE,maxBowlingAverageWithBestStrikingRate);
+        Comparator<IPLDao>maxWicktes=Comparator.comparing(iplRuns->iplRuns.wkts);
+        Comparator<IPLDao>maxBowlingAverageMaxWkts=maxWicktes.thenComparing(maxAveargeComparator);
+        this.iplMapComparator.put(IPLField.MAXIMUM_WICKET_WITH_BEST_BOWLING,maxBowlingAverageMaxWkts);
     }
 
     public int loadiplData(String iplCsvFilePath, Player player) throws IPLMatchException {

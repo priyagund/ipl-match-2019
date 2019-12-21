@@ -14,6 +14,7 @@ public class IPLDao
     public int wkts;
     public int fourWkts;
     public int fiveWkts;
+    public double overs;
 
     public IPLDao(IPLRunsCSV iplRunsCsv) {
         this.average=Double.parseDouble(iplRunsCsv.average);
@@ -28,11 +29,16 @@ public class IPLDao
     }
 
     public IPLDao(IPLWktsCSV iplWktsCSV) {
-
+        this.average=Double.parseDouble(iplWktsCSV.average);
         this.player = iplWktsCSV.player;
         this.wkts=Integer.parseInt(iplWktsCSV.wkts);
         this.fourWkts=Integer.parseInt(iplWktsCSV.fourWkts);
         this.fiveWkts=Integer.parseInt(iplWktsCSV.fiveWkts);
+        this.strikingRate =Double.parseDouble(iplWktsCSV.strikingRate);
+        this.runs=Integer.parseInt(iplWktsCSV.runs);
+        this.wkts=Integer.parseInt(iplWktsCSV.wkts);
+        this.match=Integer.parseInt(iplWktsCSV.match);
+        this.overs=Double.parseDouble(iplWktsCSV.overs);
     }
 
 }

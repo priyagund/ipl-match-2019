@@ -23,6 +23,8 @@ public class IPLWktsCSV {
     public String fiveWkts;
     @CsvBindByName(column = "Runs")
     public String runs;
+    @CsvBindByName(column = "Ov")
+    public String overs;
 
     public IPLWktsCSV() {
     }

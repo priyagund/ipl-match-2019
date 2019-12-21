@@ -16,18 +16,18 @@ public abstract class IPLMatchAdaptor {
 
     public abstract  <E> Map<String, IPLDao> loadiplData(String csvFilePath) throws IPLMatchException;
 
-    protected  <E> Map<String, IPLDao> loadiplData(Class<E> censusCSVClass, String csvFilePath) throws IPLMatchException {
+    protected  <E> Map<String, IPLDao> loadiplData(Class<E> iplCSVClass, String iplcsvFilePath) throws IPLMatchException {
         Map<String, IPLDao> iplCSVMap = new HashMap<>();
 
-        try (Reader reader = Files.newBufferedReader(Paths.get(csvFilePath))) {
+        try (Reader reader = Files.newBufferedReader(Paths.get(iplcsvFilePath))) {
             ICSVBuilder icsvBuilder = CSVBuilderFactory.createCSVBuilder();
-            Iterator<E> csvFileIterator = icsvBuilder.getCSVFileIterator(reader, censusCSVClass);
+            Iterator<E> csvFileIterator = icsvBuilder.getCSVFileIterator(reader, iplCSVClass);
             Iterable<E> csvIterable = () -> csvFileIterator;
-            if (censusCSVClass.getName().equals("com.ipl2019.IPLRunsCSV")) {
+            if (iplCSVClass.getName().equals("com.ipl2019.IPLRunsCSV")) {
                 StreamSupport.stream(csvIterable.spliterator(), false).
                         map(IPLRunsCSV.class::cast).
                         forEach(iplCSV -> iplCSVMap.put(iplCSV.player, new IPLDao(iplCSV)));
-            } else if (censusCSVClass.getName().equals("com.ipl2019.IPLWktsCSV")) {
+            } else if (iplCSVClass.getName().equals("com.ipl2019.IPLWktsCSV")) {
                 StreamSupport.stream(csvIterable.spliterator(), false).
                         map(IPLWktsCSV.class::cast).
                         forEach(iplCSV -> iplCSVMap.put(iplCSV.player, new IPLDao(iplCSV)));

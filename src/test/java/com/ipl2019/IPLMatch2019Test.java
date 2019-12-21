@@ -295,6 +295,36 @@ public class IPLMatch2019Test {
 
         }
     }
+
+    @Test
+    public void givenIPLWktsRecordFile_sortedWithTopEconomy_shouldreturnPlayer()
+    {
+        try {
+            IPLMatch2019 iplMatch2019 = new IPLMatch2019();
+            iplMatch2019.loadiplData(IPL_WKTS_FILE_PATH,IPLMatch2019.Player.BOWLWER);
+            String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.ECONOMY);
+            IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
+            Assert.assertEquals("Ben Cutting", iplWktsCSVS[iplWktsCSVS.length-1].player);
+        } catch (IPLMatchException e) {
+          e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenIPLWktsRecordFile_sortedWithWorstEconomy_shouldreturnPlayer()
+    {
+        try {
+            IPLMatch2019 iplMatch2019 = new IPLMatch2019();
+            iplMatch2019.loadiplData(IPL_WKTS_FILE_PATH,IPLMatch2019.Player.BOWLWER);
+            String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.ECONOMY);
+            IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
+            Assert.assertEquals("Shivam Dube", iplWktsCSVS[0].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
 
 

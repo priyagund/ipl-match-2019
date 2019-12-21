@@ -19,6 +19,7 @@ public class IPLMatch2019 {
         this.iplMapComparator.put(IPLField.AVERAGE, Comparator.comparing(iplrun->iplrun.average));
         this.iplMapComparator.put(IPLField.STRIKING_RATE,Comparator.comparing(iplrun->iplrun.strikingRate));
         this.iplMapComparator.put(IPLField.MAX_SIX_AND_FOURS,new SortedOnMaxFoursAndSixes());
+        this.iplMapComparator.put(IPLField.ECONOMY,Comparator.comparing(iplRun->iplRun.economy));
         Comparator<IPLDao> strikingRateComparator = Comparator.comparing(iplrun -> iplrun.strikingRate);
         Comparator<IPLDao> fourSixsComparator= new SortedOnMaxFoursAndSixes();
         Comparator<IPLDao> maxStrikingRateWithMaxSixesAndMaxFours= fourSixsComparator.thenComparing(strikingRateComparator);

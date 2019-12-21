@@ -25,11 +25,13 @@ public class IPLWktsCSV {
     public String runs;
     @CsvBindByName(column = "Ov")
     public String overs;
+    @CsvBindByName(column = "Econ")
+    public String economy;
 
     public IPLWktsCSV() {
     }
 
-    public IPLWktsCSV(String player, String match, String noOffours, String noOfSixs, String average, String strikingRate, String wkts, String fourWkts, String fiveWkts, String runs) {
+    public IPLWktsCSV(String player, String match, String noOffours, String noOfSixs, String average, String strikingRate, String wkts, String fourWkts, String fiveWkts, String runs,String economy) {
         this.player = player;
         this.match = match;
         this.noOffours = noOffours;
@@ -40,5 +42,6 @@ public class IPLWktsCSV {
         this.fourWkts = fourWkts;
         this.fiveWkts = fiveWkts;
         this.runs = runs;
+        this.economy=economy;
     }
 }

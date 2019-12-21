@@ -337,6 +337,7 @@ public class IPLMatch2019Test {
         }
 
     }
+    
     @Test
     public void givenIPLWktsRecordFile_sortedWithMinimumStrikingRateWith4WktsAnd5Wkts_shouldreturnPlayer()
     {
@@ -351,6 +352,34 @@ public class IPLMatch2019Test {
         }
     }
 
+    @Test
+    public void givenIPLWktsRecordFile_sortedWithMaximumBowlingAverageWithBestStrikingRate()
+    {
+        try {
+            IPLMatch2019 iplMatch2019 = new IPLMatch2019();
+            iplMatch2019.loadiplData(IPL_WKTS_FILE_PATH,IPLMatch2019.Player.BOWLWER);
+            String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.GREAT_BOWLING_AVERAGE_BEST_STRIKING_RATE);
+            IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
+            Assert.assertEquals("Krishnappa Gowtham", iplWktsCSVS[iplWktsCSVS.length-1].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void givenIPLWktsRecordFile_sortedWithMinimumBowlingAverageWithBestStrikingRate()
+    {
+        try {
+            IPLMatch2019 iplMatch2019 = new IPLMatch2019();
+            iplMatch2019.loadiplData(IPL_WKTS_FILE_PATH,IPLMatch2019.Player.BOWLWER);
+            String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.GREAT_BOWLING_AVERAGE_BEST_STRIKING_RATE);
+            IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
+            Assert.assertEquals("Suresh Raina", iplWktsCSVS[0].player);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 

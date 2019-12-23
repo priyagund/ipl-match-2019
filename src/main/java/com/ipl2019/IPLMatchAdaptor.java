@@ -5,6 +5,7 @@ import csvbuilder.CSVBuilderFactory;
 import csvbuilder.ICSVBuilder;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.Parameter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -14,9 +15,9 @@ import java.util.stream.StreamSupport;
 
 public abstract class IPLMatchAdaptor {
 
-    public abstract  <E> Map<String, IPLDao> loadiplData(String csvFilePath) throws IPLMatchException;
+    public abstract  <E> Map<String, IPLDao> loadIplData(IPLMatch2019.Player player,String... csvFilePath) throws IPLMatchException;
 
-    protected  <E> Map<String, IPLDao> loadiplData(Class<E> iplCSVClass, String iplcsvFilePath) throws IPLMatchException {
+    public   <E> Map<String, IPLDao> loadIplData(Class<E> iplCSVClass, String iplcsvFilePath) throws IPLMatchException {
         Map<String, IPLDao> iplCSVMap = new HashMap<>();
 
         try (Reader reader = Files.newBufferedReader(Paths.get(iplcsvFilePath))) {

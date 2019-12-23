@@ -12,7 +12,7 @@ public class IPLWktsCSV {
     @CsvBindByName(column = "6s")
     public String noOfSixs;
     @CsvBindByName(column = "Avg")
-    public String average;
+    public String bowlingAverage;
     @CsvBindByName(column = "SR")
     public String strikingRate;
     @CsvBindByName(column = "Wkts")
@@ -36,7 +36,7 @@ public class IPLWktsCSV {
         this.match = match;
         this.noOffours = noOffours;
         this.noOfSixs = noOfSixs;
-        this.average = average;
+        this.bowlingAverage = average;
         this.strikingRate = strikingRate;
         this.wkts = wkts;
         this.fourWkts = fourWkts;

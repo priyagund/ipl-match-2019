@@ -6,7 +6,8 @@ public class IPLDao
     public int match;
     public int century;
     public int fifty;
-    public double average;
+    public double bowlingAverage;
+    public double battingAverage;
     public int noOfFours;
     public int noOfSixs;
     public double strikingRate;
@@ -18,7 +19,7 @@ public class IPLDao
     public double economy;
 
     public IPLDao(IPLRunsCSV iplRunsCsv) {
-        this.average=Double.parseDouble(iplRunsCsv.average);
+        this.battingAverage=Double.parseDouble(iplRunsCsv.battingAverage);
         this.player = iplRunsCsv.player;
         this.strikingRate =Double.parseDouble(iplRunsCsv.strikingRate);
         this.century = Integer.parseInt(iplRunsCsv.century);
@@ -30,7 +31,7 @@ public class IPLDao
     }
 
     public IPLDao(IPLWktsCSV iplWktsCSV) {
-        this.average=Double.parseDouble(iplWktsCSV.average);
+        this.bowlingAverage=Double.parseDouble(iplWktsCSV.bowlingAverage);
         this.player = iplWktsCSV.player;
         this.wkts=Integer.parseInt(iplWktsCSV.wkts);
         this.fourWkts=Integer.parseInt(iplWktsCSV.fourWkts);

@@ -7,7 +7,8 @@ import static java.util.stream.Collectors.toCollection;
 public class IPLMatch2019 {
 
     public enum Player{
-        BOWLWER,BATSMAN;
+        BOWLWER,BATSMAN,MERGE_FILE;
+
     }
 
     Map<String, IPLDao> iplCSVMap;
@@ -16,7 +17,7 @@ public class IPLMatch2019 {
     public IPLMatch2019() {
         this.iplCSVMap = new HashMap<>();
         this.iplMapComparator = new HashMap<>();
-        this.iplMapComparator.put(IPLField.AVERAGE, Comparator.comparing(iplrun->iplrun.average));
+        this.iplMapComparator.put(IPLField.BATTINGAVERAGE, Comparator.comparing(iplrun->iplrun.battingAverage));
         this.iplMapComparator.put(IPLField.STRIKING_RATE,Comparator.comparing(iplrun->iplrun.strikingRate));
         this.iplMapComparator.put(IPLField.MAX_SIX_AND_FOURS,new SortedOnMaxFoursAndSixes());
         this.iplMapComparator.put(IPLField.ECONOMY,Comparator.comparing(iplRun->iplRun.economy));
@@ -29,7 +30,7 @@ public class IPLMatch2019 {
         Comparator<IPLDao> fourSixsComparator= new SortedOnMaxFoursAndSixes();
         Comparator<IPLDao> maxStrikingRateWithMaxSixesAndMaxFours= fourSixsComparator.thenComparing(strikingRateComparator);
         this.iplMapComparator.put(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS, maxStrikingRateWithMaxSixesAndMaxFours);
-        Comparator<IPLDao> maxAveargeComparator=Comparator.comparing(iplRuns->iplRuns.average);
+        Comparator<IPLDao> maxAveargeComparator=Comparator.comparing(iplRuns->iplRuns.bowlingAverage);
         Comparator<IPLDao>maxStrikingRateWithMaxAverage=maxAveargeComparator.thenComparing(strikingRateComparator);
         this.iplMapComparator.put(IPLField.MAX_STRIKINRATE_MAX_AVERAGE, maxStrikingRateWithMaxAverage);
         Comparator<IPLDao>maxRunsComparator=Comparator.comparing(iplRuns->iplRuns.runs);
@@ -40,11 +41,16 @@ public class IPLMatch2019 {
         Comparator<IPLDao>maxWicktes=Comparator.comparing(iplRuns->iplRuns.wkts);
         Comparator<IPLDao>maxBowlingAverageMaxWkts=maxWicktes.thenComparing(maxAveargeComparator);
         this.iplMapComparator.put(IPLField.MAXIMUM_WICKET_WITH_BEST_BOWLING,maxBowlingAverageMaxWkts);
+        Comparator<IPLDao>bowlingAverage=Comparator.comparing(iplRuns->iplRuns.bowlingAverage);
+        Comparator<IPLDao>battingAverage=Comparator.comparing(iplRuns->iplRuns.battingAverage);
+        Comparator<IPLDao>maximumBowlingAverageAndBattingAverage=bowlingAverage.thenComparing(battingAverage);
+        this.iplMapComparator.put(IPLField.MAXIMUM_BATTING_AVERAGE_MAXIMUM_BALLING_AVERAGE,maximumBowlingAverageAndBattingAverage);
+        this.iplMapComparator.put(IPLField.MAXIMUM_BATTING_AVERAGE_MAXIMUM_BALLING_AVERAGE,new BatsManBowlerAverageComparator());
     }
 
-    public int loadiplData(String iplCsvFilePath, Player player) throws IPLMatchException {
-        IPLMatchAdaptor censusAdaptor = IPLMatchAdaptorFactory.getCensusData(player);
-        iplCSVMap = censusAdaptor.loadiplData(iplCsvFilePath);
+    public int loadIplData(Player player,String... iplCsvFilePath) throws IPLMatchException {
+        IPLMatchAdaptor censusAdaptor = IPLMatchAdaptorFactory.getIplData(player);
+        iplCSVMap = censusAdaptor.loadIplData(player, iplCsvFilePath);
         return iplCSVMap.size();
     }
 

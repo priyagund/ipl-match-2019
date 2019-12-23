@@ -17,7 +17,7 @@ public class IPLRunsCSV
     @CsvBindByName(column = "6s", required = true)
     public String noOfSixs;
     @CsvBindByName(column = "Avg", required = true)
-    public String average;
+    public String battingAverage;
     @CsvBindByName(column = "SR", required = true)
     public String strikingRate;
     @CsvBindByName(column = "Mat", required = true)

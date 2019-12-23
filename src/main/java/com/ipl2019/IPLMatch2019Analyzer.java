@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import java.util.*;
 import static java.util.stream.Collectors.toCollection;
 
-public class IPLMatch2019 {
+public class IPLMatch2019Analyzer {
 
     public enum Player{
         BOWLWER,BATSMAN,MERGE_FILE;
@@ -14,7 +14,7 @@ public class IPLMatch2019 {
     Map<String, IPLDao> iplCSVMap;
     Map<IPLField, Comparator<IPLDao>> iplMapComparator;
 
-    public IPLMatch2019() {
+    public IPLMatch2019Analyzer() {
         this.iplCSVMap = new HashMap<>();
         this.iplMapComparator = new HashMap<>();
         this.iplMapComparator.put(IPLField.BATTINGAVERAGE, Comparator.comparing(iplrun->iplrun.battingAverage));
@@ -38,7 +38,7 @@ public class IPLMatch2019 {
         this.iplMapComparator.put(IPLField.MAX_RUNS_WITH_BEST_AVERAGE,maxRunsWithBestAverage);
         Comparator<IPLDao>maxBowlingAverageWithBestStrikingRate=strikingRateComparator.thenComparing(maxAveargeComparator);
         this.iplMapComparator.put(IPLField.GREAT_BOWLING_AVERAGE_BEST_STRIKING_RATE,maxBowlingAverageWithBestStrikingRate);
-        Comparator<IPLDao>maxWicktes=Comparator.comparing(iplRuns->iplRuns.wkts);
+        Comparator<IPLDao>maxWicktes=Comparator.comparing(iplRuns->iplRuns.wickets);
         Comparator<IPLDao>maxBowlingAverageMaxWkts=maxWicktes.thenComparing(maxAveargeComparator);
         this.iplMapComparator.put(IPLField.MAXIMUM_WICKET_WITH_BEST_BOWLING,maxBowlingAverageMaxWkts);
         Comparator<IPLDao>bowlingAverage=Comparator.comparing(iplRuns->iplRuns.bowlingAverage);
@@ -46,6 +46,10 @@ public class IPLMatch2019 {
         Comparator<IPLDao>maximumBowlingAverageAndBattingAverage=bowlingAverage.thenComparing(battingAverage);
         this.iplMapComparator.put(IPLField.MAXIMUM_BATTING_AVERAGE_MAXIMUM_BALLING_AVERAGE,maximumBowlingAverageAndBattingAverage);
         this.iplMapComparator.put(IPLField.MAXIMUM_BATTING_AVERAGE_MAXIMUM_BALLING_AVERAGE,new BatsManBowlerAverageComparator());
+        Comparator<IPLDao>maxRuns=Comparator.comparing(iplRuns->iplRuns.runs);
+        Comparator<IPLDao>maxWkts=Comparator.comparing(iplRuns->iplRuns.wickets);
+        Comparator<IPLDao>maxRunsAndmaxWkts=maxRuns.thenComparing(maxWkts);
+        this.iplMapComparator.put(IPLField.MOST_RUNS_AND_HIGH_WICKETS,maxRunsAndmaxWkts);
     }
 
     public int loadIplData(Player player,String... iplCsvFilePath) throws IPLMatchException {

@@ -12,7 +12,7 @@ public class IPLDao
     public int noOfSixs;
     public double strikingRate;
     public int runs;
-    public int wkts;
+    public int wickets;
     public int fourWkts;
     public int fiveWkts;
     public double overs;
@@ -33,12 +33,11 @@ public class IPLDao
     public IPLDao(IPLWktsCSV iplWktsCSV) {
         this.bowlingAverage=Double.parseDouble(iplWktsCSV.bowlingAverage);
         this.player = iplWktsCSV.player;
-        this.wkts=Integer.parseInt(iplWktsCSV.wkts);
+        this.wickets=Integer.parseInt(iplWktsCSV.wickets);
         this.fourWkts=Integer.parseInt(iplWktsCSV.fourWkts);
         this.fiveWkts=Integer.parseInt(iplWktsCSV.fiveWkts);
         this.strikingRate =Double.parseDouble(iplWktsCSV.strikingRate);
         this.runs=Integer.parseInt(iplWktsCSV.runs);
-        this.wkts=Integer.parseInt(iplWktsCSV.wkts);
         this.match=Integer.parseInt(iplWktsCSV.match);
         this.overs=Double.parseDouble(iplWktsCSV.overs);
         this.economy=Double.parseDouble(iplWktsCSV.economy);

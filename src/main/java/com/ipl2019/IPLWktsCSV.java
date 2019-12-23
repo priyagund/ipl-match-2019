@@ -16,7 +16,7 @@ public class IPLWktsCSV {
     @CsvBindByName(column = "SR")
     public String strikingRate;
     @CsvBindByName(column = "Wkts")
-    public String wkts;
+    public String wickets;
     @CsvBindByName(column = "4w")
     public String fourWkts;
     @CsvBindByName(column = "5w")
@@ -38,7 +38,7 @@ public class IPLWktsCSV {
         this.noOfSixs = noOfSixs;
         this.bowlingAverage = average;
         this.strikingRate = strikingRate;
-        this.wkts = wkts;
+        this.wickets = wkts;
         this.fourWkts = fourWkts;
         this.fiveWkts = fiveWkts;
         this.runs = runs;

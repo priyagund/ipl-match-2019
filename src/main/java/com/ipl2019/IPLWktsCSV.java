@@ -28,8 +28,11 @@ public class IPLWktsCSV {
     @CsvBindByName(column = "Econ")
     public String economy;
 
+    public IPLWktsCSV() {
 
-    public IPLWktsCSV(String player, String match, String overs, String runs, String wicket, String bowlingAverage, String strikingRate, String fourWkts, String fiveWkts,String economy) {
+    }
+
+    public IPLWktsCSV(String player, String match, String overs, String runs, String wicket, String bowlingAverage, String strikingRate, String fourWkts, String fiveWkts, String economy) {
         this.player = player;
         this.match = match;
         this.overs=overs;
@@ -41,7 +44,5 @@ public class IPLWktsCSV {
         this.runs = runs;
         this.economy=economy;
     }
-
-
 
 }

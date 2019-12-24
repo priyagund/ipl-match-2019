@@ -6,19 +6,10 @@ package com.ipl2019;
      }
      
      ExceptionType type;
-   
-     public IPLMatchException(ExceptionType type) {
-         this.type = type;
-     }
 
      public IPLMatchException(String message, ExceptionType type) {
          super(message);
          this.type = type;
      }
-     public IPLMatchException(String message,String name) {
-         super(message);
-         this.type =ExceptionType.valueOf(name);
-     }
-
  }
 

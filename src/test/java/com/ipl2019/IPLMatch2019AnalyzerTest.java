@@ -15,6 +15,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenLoadIPLRunsRecord_ifLoded_shouldReturnResult() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             int noOfPlayers = iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             Assert.assertEquals(100, noOfPlayers);
         } catch (IPLMatchException e) {
@@ -412,9 +413,23 @@ public class IPLMatch2019AnalyzerTest {
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.MERGE_FILE,IPL_RUNS_RECORD_FILE,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MOST_RUNS_AND_HIGH_WICKETS);
             IPLDao[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLDao[].class);
-            Assert.assertEquals("Hardik Pandya", iplWktsCSVS[iplWktsCSVS.length-1].player);
+            Assert.assertEquals("David Warner", iplWktsCSVS[iplWktsCSVS.length-1].player);
         } catch (IPLMatchException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenIPLRecordFile_ifNotLoaded_throwException()
+    {
+        IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+        iplMatch2019.setAdaptor(new MergeAdaptor());
+        try {
+            String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MOST_RUNS_AND_HIGH_WICKETS);
+            IPLDao[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLDao[].class);
+            Assert.assertEquals("David Warner", iplWktsCSVS[iplWktsCSVS.length-1].player);
+        } catch (IPLMatchException e) {
+            Assert.assertEquals(IPLMatchException.ExceptionType.NO_DATA_FOUND,e.type);
         }
     }
 }

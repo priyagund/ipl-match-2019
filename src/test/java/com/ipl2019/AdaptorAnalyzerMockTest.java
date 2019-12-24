@@ -1,5 +1,6 @@
 package com.ipl2019;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -20,7 +21,6 @@ public class AdaptorAnalyzerMockTest {
     private String IPL_WKTS_FILE_PATH="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL2019FactsheetMostWkts.csv";
     IPLMatch2019Analyzer iplAnalyser = new IPLMatch2019Analyzer();
     IPLMatch2019Analyzer iplBowlingAnalyzer=new IPLMatch2019Analyzer();
-
 
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();
@@ -72,6 +72,30 @@ public class AdaptorAnalyzerMockTest {
             Assert.assertEquals(3, countResult);
         } catch (IPLMatchException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenIPLRunRecordsFile_sortedByLowestBatingAverage_shouldReturnPlayer() {
+        try {
+            iplAnalyser.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_FILE_PATH);
+            String sortedCSVData = iplAnalyser.sortedByGivenField(IPLField.BATTING_AVERAGE);
+            IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
+            Assert.assertEquals("David Warner", iplRunsCSVS[0].player);
+        } catch (IPLMatchException e) {
+
+        }
+    }
+
+    @Test
+    public void givenIPLWicketRecordsFile_sortedByLowestBatingAverage_shouldReturnPlayer() {
+        try {
+            iplBowlingAnalyzer.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
+            String sortedCSVData = iplBowlingAnalyzer.sortedByGivenField(IPLField.BOWLING_AVERAGE);
+            IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
+            Assert.assertEquals("Deepak Chahar", iplWktsCSVS[0].player);
+        } catch (IPLMatchException e) {
+
         }
     }
 

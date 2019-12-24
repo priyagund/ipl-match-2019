@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ipl2019.AdaptorAnalyzerMockTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-24T08:40:37" hostname="admin165-desktop" time="0.133">
+<testsuite name="com.ipl2019.AdaptorAnalyzerMockTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-24T08:58:33" hostname="admin165-desktop" time="0.142">
   <properties/>
-  <testcase name="givenWicketFile_ifLoded_shouldReturnResult" classname="com.ipl2019.AdaptorAnalyzerMockTest" time="0.133"/>
-  <system-out><![CDATA[[MockitoHint] AdaptorAnalyzerMockTest.givenWicketFile_ifLoded_shouldReturnResult (see javadoc for MockitoHint):
-[MockitoHint] 1. Unused -> at com.ipl2019.AdaptorAnalyzerMockTest.givenRunsFileData(AdaptorAnalyzerMockTest.java:43)
+  <testcase name="givenIPLWicketRecordsFile_sortedByLowestBatingAverage_shouldReturnPlayer" classname="com.ipl2019.AdaptorAnalyzerMockTest" time="0.142"/>
+  <system-out><![CDATA[[MockitoHint] AdaptorAnalyzerMockTest.givenIPLWicketRecordsFile_sortedByLowestBatingAverage_shouldReturnPlayer (see javadoc for MockitoHint):
+[MockitoHint] 1. Unused -> at com.ipl2019.AdaptorAnalyzerMockTest.givenRunsFileData(AdaptorAnalyzerMockTest.java:42)
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,3 +1,3 @@
-p[MockitoHint] AdaptorAnalyzerMockTest.givenWicketFile_ifLoded_shouldReturnResult (see javadoc for MockitoHint):
-u[MockitoHint] 1. Unused -> at com.ipl2019.AdaptorAnalyzerMockTest.givenRunsFileData(AdaptorAnalyzerMockTest.java:43)
+Ž[MockitoHint] AdaptorAnalyzerMockTest.givenIPLWicketRecordsFile_sortedByLowestBatingAverage_shouldReturnPlayer (see javadoc for MockitoHint):
+u[MockitoHint] 1. Unused -> at com.ipl2019.AdaptorAnalyzerMockTest.givenRunsFileData(AdaptorAnalyzerMockTest.java:42)
 

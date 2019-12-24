@@ -28,6 +28,7 @@ public class IPLDao
         this.noOfFours = Integer.parseInt(iplRunsCsv.noOffours);
         this.runs=Integer.parseInt(iplRunsCsv.runs);
         this.match=Integer.parseInt(iplRunsCsv.match);
+
     }
 
     public IPLDao(IPLWktsCSV iplWktsCSV) {

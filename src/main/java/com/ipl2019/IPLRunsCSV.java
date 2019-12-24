@@ -4,6 +4,7 @@ import com.opencsv.bean.CsvBindByName;
 
 public class IPLRunsCSV
 {
+
     @CsvBindByName(column = "PLAYER", required = true)
     public String player;
     @CsvBindByName(column = "Runs", required = true)
@@ -29,6 +30,18 @@ public class IPLRunsCSV
 
     public IPLRunsCSV(IPLDao iplRunsDao) {
 
+    }
+
+    public IPLRunsCSV(String player, String match, String runs, String battingAverage, String strikingRate, String century, String fifty, String noOfFours, String noOfSix) {
+        this.player=player;
+        this.match=match;
+        this.century=century;
+        this.fifty=fifty;
+        this.strikingRate=strikingRate;
+        this.runs=runs;
+        this.noOffours=noOfFours;
+        this.noOfSixs=noOfSix;
+        this.battingAverage=battingAverage;
 
     }
 }

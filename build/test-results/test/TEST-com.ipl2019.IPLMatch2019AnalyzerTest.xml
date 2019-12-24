@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ipl2019.IPLMatch2019AnalyzerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2019-12-23T11:19:58" hostname="admin165-desktop" time="0.514">
+<testsuite name="com.ipl2019.IPLMatch2019AnalyzerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2019-12-24T04:32:32" hostname="admin165-desktop" time="0.007">
   <properties/>
-  <testcase name="givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.514">
-    <failure message="org.junit.ComparisonFailure: expected:&lt;[Hardik Pandya]&gt; but was:&lt;[David Warner]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Hardik Pandya]&gt; but was:&lt;[David Warner]&gt;
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.ipl2019.IPLMatch2019AnalyzerTest.givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer(IPLMatch2019AnalyzerTest.java:388)
+  <testcase name="givenLoadIPLWktsRecord_ifLoded_shouldReturnResult" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.007">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at com.ipl2019.IPLMatch2019Analyzer.loadIplData(IPLMatch2019Analyzer.java:59)
+	at com.ipl2019.IPLMatch2019AnalyzerTest.givenLoadIPLWktsRecord_ifLoded_shouldReturnResult(IPLMatch2019AnalyzerTest.java:192)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -6,13 +6,15 @@ import static java.util.stream.Collectors.toCollection;
 
 public class IPLMatch2019Analyzer {
 
+    private IPLMatchAdaptor iplMatchAdaptor;
+
     public enum Player{
         BOWLWER,BATSMAN,MERGE_FILE;
-
     }
 
     Map<String, IPLDao> iplCSVMap;
     Map<IPLField, Comparator<IPLDao>> iplMapComparator;
+
 
     public IPLMatch2019Analyzer() {
         this.iplCSVMap = new HashMap<>();
@@ -53,9 +55,13 @@ public class IPLMatch2019Analyzer {
     }
 
     public int loadIplData(Player player,String... iplCsvFilePath) throws IPLMatchException {
-        IPLMatchAdaptor censusAdaptor = IPLMatchAdaptorFactory.getIplData(player);
-        iplCSVMap = censusAdaptor.loadIplData(player, iplCsvFilePath);
+
+        iplCSVMap = this.iplMatchAdaptor.loadIplData(player, iplCsvFilePath);
         return iplCSVMap.size();
+    }
+
+    public void setAdaptor(IPLMatchAdaptor iplMatchAdaptor){
+        this.iplMatchAdaptor=iplMatchAdaptor;
     }
 
     public String sortedByGivenField(IPLField fieldName) throws IPLMatchException {

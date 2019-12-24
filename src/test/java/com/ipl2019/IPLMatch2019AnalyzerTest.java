@@ -26,6 +26,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLRunRecordsFile_sortedByLowestBatsMan_shouldReturnPlayer() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.BATTINGAVERAGE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
@@ -39,6 +40,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLRunRecordFile_sortedTopBatsMan_shouldReturnPlayer() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.BATTINGAVERAGE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
@@ -53,6 +55,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLRunsRecordFile_sortedByLowestStrikingRate_shouldReturnPlayer() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
@@ -66,6 +69,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLRunsRecordFile_sortedByTopStrikingRate_shouldReturnPlayer() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
@@ -79,6 +83,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLRunsRecordFile_sortedByMaximumSixexAndFours_shouldReturnPlayer() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAX_SIX_AND_FOURS);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
@@ -93,6 +98,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try{
         IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+        iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
         iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
         String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAX_SIX_AND_FOURS);
         IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
@@ -107,6 +113,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019=new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -121,6 +128,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019=new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.STRIKINRATE_MAX_SIX_AND_FOURS);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -135,6 +143,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019=new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN ,IPL_RUNS_RECORD_FILE);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_STRIKINRATE_MAX_AVERAGE);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -149,6 +158,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019=new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_STRIKINRATE_MAX_AVERAGE);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -163,6 +173,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019=new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData=iplMatch2019.sortedByGivenField(IPLField.MAX_RUNS_WITH_BEST_AVERAGE);
             IPLRunsCSV[] iplRunsCSVS=new Gson().fromJson(sortedCSVData,IPLRunsCSV[].class);
@@ -176,6 +187,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLRunsRecordFile_sortedWithMinimumRunsWithWorstAverage_shouldReturnPlayer() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBatsManAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,IPL_RUNS_RECORD_FILE);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAX_RUNS_WITH_BEST_AVERAGE);
             IPLRunsCSV[] iplRunsCSVS = new Gson().fromJson(sortedCSVData, IPLRunsCSV[].class);
@@ -189,6 +201,7 @@ public class IPLMatch2019AnalyzerTest {
         public void givenLoadIPLWktsRecord_ifLoded_shouldReturnResult() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             int noOfPlayers = iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             Assert.assertEquals(99, noOfPlayers);
         } catch (IPLMatchException e) {
@@ -201,6 +214,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.BOWLINGAVERAGE);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -215,6 +229,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.BOWLINGAVERAGE);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -229,6 +244,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -243,6 +259,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -257,6 +274,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.ECONOMY);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -271,6 +289,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.ECONOMY);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -284,6 +303,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLWktsRecordFile_sortedWithMaxStrikingRateWith4WktsAnd5Wkts_shouldreturnPlayer() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData( IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE_FOURWKTS_FIVEWKTS);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -299,6 +319,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.STRIKING_RATE_FOURWKTS_FIVEWKTS);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -313,6 +334,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.GREAT_BOWLING_AVERAGE_BEST_STRIKING_RATE);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -328,6 +350,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.GREAT_BOWLING_AVERAGE_BEST_STRIKING_RATE);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -341,6 +364,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLWktsRecordFile_sortedWithMaximumWicketsWithBestBowlingAverage_shouldReturnPlay() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAXIMUM_WICKET_WITH_BEST_BOWLING);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -354,6 +378,7 @@ public class IPLMatch2019AnalyzerTest {
     public void givenIPLWktsRecordFile_sortedWithMinimumWicketsWithWorstBowlingAverage_shouldReturnPlay() {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new IPLBowlersAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAXIMUM_WICKET_WITH_BEST_BOWLING);
             IPLWktsCSV[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLWktsCSV[].class);
@@ -368,6 +393,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new MergeAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.MERGE_FILE,IPL_RUNS_RECORD_FILE,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MAXIMUM_BATTING_AVERAGE_MAXIMUM_BALLING_AVERAGE);
             IPLDao[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLDao[].class);
@@ -382,6 +408,7 @@ public class IPLMatch2019AnalyzerTest {
     {
         try {
             IPLMatch2019Analyzer iplMatch2019 = new IPLMatch2019Analyzer();
+            iplMatch2019.setAdaptor(new MergeAdaptor());
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.MERGE_FILE,IPL_RUNS_RECORD_FILE,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MOST_RUNS_AND_HIGH_WICKETS);
             IPLDao[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLDao[].class);

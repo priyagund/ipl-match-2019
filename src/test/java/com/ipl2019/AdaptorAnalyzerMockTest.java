@@ -9,18 +9,23 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
 public class AdaptorAnalyzerMockTest {
 
     private String IPL_RUNS_FILE_PATH="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL2019FactsheetMostRuns.csv";
+    private String IPL_WKTS_FILE_PATH="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL2019FactsheetMostWkts.csv";
     IPLMatch2019Analyzer iplAnalyser = new IPLMatch2019Analyzer();
-    @Mock
-    IPLBatsManAdaptor iplBatsmanObject;
+    IPLMatch2019Analyzer iplBowlingAnalyzer=new IPLMatch2019Analyzer();
+
 
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();
+    private IPLBowlersAdaptor iplBowlerObject;
+    private IPLBatsManAdaptor iplBatsmanObject;
 
     @Before
     public void givenRunsFileData() {
@@ -32,8 +37,20 @@ public class AdaptorAnalyzerMockTest {
             sampleBatsmanMap.put("David Warner", daoObjectOne);
             sampleBatsmanMap.put("MS Dhoni", daoObjectTwo);
             sampleBatsmanMap.put("Suresh Raina", daoObjectThree);
-            when(iplBatsmanObject.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN, IPL_RUNS_FILE_PATH)).thenReturn(sampleBatsmanMap);
-            iplAnalyser.setAdaptor(iplBatsmanObject);
+            this.iplBatsmanObject = mock(IPLBatsManAdaptor.class);
+            when(this.iplBatsmanObject.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN, IPL_RUNS_FILE_PATH)).thenReturn(sampleBatsmanMap);
+            iplAnalyser.setAdaptor(this.iplBatsmanObject);
+
+            IPLDao daoBowlerObjectOne = new IPLDao(new IPLWktsCSV("Imran Tahir","17","64.2","431","16","26.0","6.69","14","2","0"));
+            IPLDao daoBowlerObjectTwo = new IPLDao(new IPLWktsCSV("Kagiso Rabada","12","47","368","25","14.72","11.28","2","0","7.82"));
+            IPLDao daoBowlerObjectThree = new IPLDao(new IPLWktsCSV("Deepak Chahar","17","64","482","0","7.47","17.59","0","0","7.47"));
+            Map<String, IPLDao> sampleBowlerMap = new HashMap<>();
+            sampleBowlerMap.put("Imran Tahir", daoBowlerObjectOne);
+            sampleBowlerMap.put("Kagiso Rabada", daoBowlerObjectTwo);
+            sampleBowlerMap.put("Deepak Chahar", daoBowlerObjectThree);
+            this.iplBowlerObject = mock(IPLBowlersAdaptor.class);
+            when(this.iplBowlerObject.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER, IPL_WKTS_FILE_PATH)).thenReturn(sampleBowlerMap);
+            iplBowlingAnalyzer.setAdaptor(this.iplBowlerObject);
         } catch (IPLMatchException e) {
             e.printStackTrace();
         }
@@ -47,6 +64,16 @@ public class AdaptorAnalyzerMockTest {
                 e.printStackTrace();
             }
         }
+
+    @Test
+    public void givenWicketFile_ifLoded_shouldReturnResult() {
+        try {
+            int countResult = iplBowlingAnalyzer.loadIplData(IPLMatch2019Analyzer.Player.BOWLWER, IPL_WKTS_FILE_PATH);
+            Assert.assertEquals(3, countResult);
+        } catch (IPLMatchException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

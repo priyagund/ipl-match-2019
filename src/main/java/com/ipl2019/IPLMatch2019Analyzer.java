@@ -56,7 +56,6 @@ public class IPLMatch2019Analyzer {
     }
 
     public int loadIplData(Player player,String... iplCsvFilePath) throws IPLMatchException {
-
         iplCSVMap = this.iplMatchAdaptor.loadIplData(player, iplCsvFilePath);
         return iplCSVMap.size();
     }

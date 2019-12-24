@@ -25,11 +25,6 @@ public class IPLRunsCSV
     public String match;
 
     public IPLRunsCSV() {
-
-    }
-
-    public IPLRunsCSV(IPLDao iplRunsDao) {
-
     }
 
     public IPLRunsCSV(String player, String match, String runs, String battingAverage, String strikingRate, String century, String fifty, String noOfFours, String noOfSix) {

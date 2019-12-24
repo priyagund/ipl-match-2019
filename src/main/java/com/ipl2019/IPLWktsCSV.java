@@ -29,7 +29,6 @@ public class IPLWktsCSV {
     public String economy;
 
     public IPLWktsCSV() {
-
     }
 
     public IPLWktsCSV(String player, String match, String overs, String runs, String wicket, String bowlingAverage, String strikingRate, String fourWkts, String fiveWkts, String economy) {

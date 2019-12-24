@@ -6,10 +6,9 @@ import org.junit.Test;
 
 public class IPLMatch2019AnalyzerTest {
 
-    private String IPL_RUNS_RECORD_FILE = "/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL2019FactsheetMostRuns.csv";
-    private String FILE_FOR_STRIKING_RATE_AND_FOURS="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL_2019_Check_StrikingRate_And_NoOfFours.csv";
-    private String IPL_WKTS_FILE_PATH="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL2019FactsheetMostWkts.csv";
-    private String IPL_WKTS_SAMPLE_FILE="/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL_Wkts_Sample_file_path.csv";
+    private String IPL_RUNS_RECORD_FILE = "/home/admin142/Desktop/priya/ipl-match-2019/src/test/resources/IPL2019FactsheetMostRuns.csv";
+    private String IPL_WKTS_FILE_PATH="/home/admin142/Desktop/priya/ipl-match-2019/src/test/resources/IPL2019FactsheetMostWkts.csv";
+
 
     @Test
     public void givenLoadIPLRunsRecord_ifLoded_shouldReturnResult() {

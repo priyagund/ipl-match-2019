@@ -15,7 +15,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'org.apache.commons', name: 'commons-csv', version: '1.7'
-    compile(files("/home/admin165/Desktop/Priya/CensusAnalyzerJar/out/artifacts/CensusAnalyzerJar_jar/CensusAnalyzerJar.jar"))
-    compile 'com.google.code.gson:gson:2.2.+'
+    compile(files("/home/admin142/Desktop/priya/censusAnalyzerOpenCsvJar/out/artifacts/CensusAnalyzerJar_jar/CensusAnalyzerJar.jar"))
     testImplementation 'org.mockito:mockito-core:3.+'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
 }

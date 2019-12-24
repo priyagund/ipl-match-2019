@@ -9,8 +9,8 @@ public class IPLBatsManAdaptorTest {
 
     private String IPL_RUNS_RECORD_FILE = "/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IPL2019FactsheetMostWkts.csv";
     private String WRONG_FILE_PATH = "/home/admin165/Downloads/CensusAnalyser(2)/CensusAnalyser/src/test/resources/USCensusData.csv";
-    private String INCORRECT_HEADER = "/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IncrrectHeader.csv";
-    private String INCORRECT_DELIMETER = "/home/admin165/Desktop/Priya/NewIPL2019/src/test/resources/IncorrectDelimiter.csv";
+    private String INCORRECT_HEADER = "/home/admin142/Desktop/priya/ipl-match-2019/src/test/resources/IncrrectHeader.csv";
+    private String INCORRECT_DELIMETER = "/home/admin142/Desktop/priya/ipl-match-2019/src/test/resources/IncorrectDelimiter.csv";
 
     @Test
     public void givenLoadIPLRunsRecord_ifLoded_shouldReturnResult() {
@@ -29,7 +29,7 @@ public class IPLBatsManAdaptorTest {
             IPLBatsManAdaptor iplBatsManAdaptor = new IPLBatsManAdaptor();
             iplBatsManAdaptor.loadIplData(IPLMatch2019Analyzer.Player.BATSMAN,WRONG_FILE_PATH);
         } catch (IPLMatchException e) {
-            Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE, e.type);
+            Assert.assertEquals(IPLMatchException.ExceptionType.FILE_NOT_FOUND, e.type);
         }
     }
 
@@ -62,6 +62,5 @@ public class IPLBatsManAdaptorTest {
         } catch (IPLMatchException e) {
             Assert.assertEquals(IPLMatchException.ExceptionType.SUME_ERROR_IN_FILE, e.type);
         }
-
     }
 }

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ipl2019.IPLMatch2019AnalyzerTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2019-12-24T10:52:21" hostname="admin165-desktop" time="4.966">
+<testsuite name="com.ipl2019.IPLMatch2019AnalyzerTest" tests="29" skipped="0" failures="0" errors="0" timestamp="2019-12-24T13:01:39" hostname="admin142-desktop" time="4.659">
   <properties/>
-  <testcase name="givenIPLRunsRecordFile_sortedByMaximumStrikingRateWithMaxSixesAndMaxFours_shoulReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.642"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithMinimumWicketsWithWorstBowlingAverage_shouldReturnPlay" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.372"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithMaximumBowlingAverageWithBestStrikingRate" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.204"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithMinimumBowlingAverageWithBestStrikingRate_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.168"/>
-  <testcase name="givenLoadIPLWktsRecord_ifLoded_shouldReturnResult" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.165"/>
-  <testcase name="givenIPLRunsRecordFile_sortedByMaximumSixexAndFours_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.161"/>
-  <testcase name="givenIPLRecordFile_sortedWithHighBattingAndBowllingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.326"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithWorstEconomy_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.167"/>
-  <testcase name="givenIPLRunsRecordFile_sortedByTopStrikingRate_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.135"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithTopEconomy_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.142"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithWorthStrikingRateOfBowler_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.142"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByMaximumStrikingRateWithMaxSixesAndMaxFours_shoulReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.556"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithMinimumWicketsWithWorstBowlingAverage_shouldReturnPlay" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.207"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithMaximumBowlingAverageWithBestStrikingRate" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.183"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithMinimumBowlingAverageWithBestStrikingRate_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.173"/>
+  <testcase name="givenLoadIPLWktsRecord_ifLoded_shouldReturnResult" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.16"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByMaximumSixexAndFours_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.159"/>
+  <testcase name="givenIPLRecordFile_sortedWithHighBattingAndBowllingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.32"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithWorstEconomy_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.157"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByTopStrikingRate_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.132"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithTopEconomy_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.143"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithWorthStrikingRateOfBowler_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.139"/>
   <testcase name="givenIPLWktsRecordFile_sortedWithMinimumStrikingRateWith4WktsAnd5Wkts_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.138"/>
-  <testcase name="givenIPLRunsRecordFile_sortedByMinimumStrikingWithGreatBattingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.13"/>
-  <testcase name="givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.258"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithTopBowlingAvearge_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.137"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithTopStrikingRateOfBowler_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.135"/>
-  <testcase name="givenIPLRunsRecordFile_sortedByMinimumSixexAndFours_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.124"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithMaximumWicketsWithBestBowlingAverage_shouldReturnPlay" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.138"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByMinimumStrikingWithGreatBattingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.129"/>
+  <testcase name="givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.257"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithTopBowlingAvearge_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.136"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithTopStrikingRateOfBowler_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.136"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByMinimumSixexAndFours_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.122"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithMaximumWicketsWithBestBowlingAverage_shouldReturnPlay" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.136"/>
   <testcase name="givenIPLRunRecordsFile_sortedByLowestBatingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.125"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithWorthBowlingAverage_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.135"/>
-  <testcase name="givenIPLRunsRecordFile_sortedByMinimumStrikingRAteWithMaxSixesAndMaxFours_shoulReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.126"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithWorthBowlingAverage_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.134"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByMinimumStrikingRAteWithMaxSixesAndMaxFours_shoulReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.128"/>
   <testcase name="givenIPLRecordFile_ifNotLoaded_throwException" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.001"/>
-  <testcase name="givenIPLRunsRecordFile_sortedWithMaximumRunsWithBestBattingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.125"/>
+  <testcase name="givenIPLRunsRecordFile_sortedWithMaximumRunsWithBestBattingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.127"/>
   <testcase name="givenIPLRunRecordFile_sortedTopBatingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.124"/>
-  <testcase name="givenIPLWktsRecordFile_sortedWithMaxStrikingRateWith4WktsAnd5Wkts_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.137"/>
+  <testcase name="givenIPLWktsRecordFile_sortedWithMaxStrikingRateWith4WktsAnd5Wkts_shouldreturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.133"/>
   <testcase name="givenLoadIPLRunsRecord_ifLoded_shouldReturnResult" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.123"/>
-  <testcase name="givenIPLRunsRecordFile_sortedByMaximumStrikingWithGreatBattingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.126"/>
-  <testcase name="givenIPLRunsRecordFile_sortedWithMinimumRunsWithWorstAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.125"/>
-  <testcase name="givenIPLRunsRecordFile_sortedByLowestStrikingRate_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.127"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByMaximumStrikingWithGreatBattingAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.124"/>
+  <testcase name="givenIPLRunsRecordFile_sortedWithMinimumRunsWithWorstAverage_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.123"/>
+  <testcase name="givenIPLRunsRecordFile_sortedByLowestStrikingRate_shouldReturnPlayer" classname="com.ipl2019.IPLMatch2019AnalyzerTest" time="0.125"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

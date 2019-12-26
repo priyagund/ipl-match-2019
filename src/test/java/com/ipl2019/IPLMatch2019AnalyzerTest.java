@@ -412,7 +412,7 @@ public class IPLMatch2019AnalyzerTest {
             iplMatch2019.loadIplData(IPLMatch2019Analyzer.Player.MERGE_FILE,IPL_RUNS_RECORD_FILE,IPL_WKTS_FILE_PATH);
             String sortedCSVData = iplMatch2019.sortedByGivenField(IPLField.MOST_RUNS_AND_HIGH_WICKETS);
             IPLDao[] iplWktsCSVS = new Gson().fromJson(sortedCSVData, IPLDao[].class);
-            Assert.assertEquals("David Warner", iplWktsCSVS[iplWktsCSVS.length-1].player);
+            Assert.assertEquals("Hardik Pandya", iplWktsCSVS[iplWktsCSVS.length-1].player);
         } catch (IPLMatchException e) {
             e.printStackTrace();
         }

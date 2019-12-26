@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">29</div>
+<div class="counter">1</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">4.650s</div>
+<div class="counter">0.503s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,10 +61,74 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer"></a>
+<h3 class="failures">givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer</h3>
+<span class="code">
+<pre>org.junit.ComparisonFailure: expected:&lt;[Hardik Pandya]&gt; but was:&lt;[David Warner]&gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.ipl2019.IPLMatch2019AnalyzerTest.givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer(IPLMatch2019AnalyzerTest.java:415)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:175)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:157)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -75,149 +139,9 @@
 </tr>
 </thead>
 <tr>
-<td class="success">givenIPLRecordFile_ifNotLoaded_throwException</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRecordFile_sortedWithHighBattingAndBowllingAverage_shouldReturnPlayer</td>
-<td class="success">0.320s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer</td>
-<td class="success">0.257s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunRecordFile_sortedTopBatingAverage_shouldReturnPlayer</td>
-<td class="success">0.124s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunRecordsFile_sortedByLowestBatingAverage_shouldReturnPlayer</td>
-<td class="success">0.125s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByLowestStrikingRate_shouldReturnPlayer</td>
-<td class="success">0.125s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByMaximumSixexAndFours_shouldReturnPlayer</td>
-<td class="success">0.159s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByMaximumStrikingRateWithMaxSixesAndMaxFours_shoulReturnPlayer</td>
-<td class="success">0.556s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByMaximumStrikingWithGreatBattingAverage_shouldReturnPlayer</td>
-<td class="success">0.124s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByMinimumSixexAndFours_shouldReturnPlayer</td>
-<td class="success">0.122s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByMinimumStrikingRAteWithMaxSixesAndMaxFours_shoulReturnPlayer</td>
-<td class="success">0.128s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByMinimumStrikingWithGreatBattingAverage_shouldReturnPlayer</td>
-<td class="success">0.129s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedByTopStrikingRate_shouldReturnPlayer</td>
-<td class="success">0.132s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedWithMaximumRunsWithBestBattingAverage_shouldReturnPlayer</td>
-<td class="success">0.127s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLRunsRecordFile_sortedWithMinimumRunsWithWorstAverage_shouldReturnPlayer</td>
-<td class="success">0.123s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithMaxStrikingRateWith4WktsAnd5Wkts_shouldreturnPlayer</td>
-<td class="success">0.133s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithMaximumBowlingAverageWithBestStrikingRate</td>
-<td class="success">0.183s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithMaximumWicketsWithBestBowlingAverage_shouldReturnPlay</td>
-<td class="success">0.136s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithMinimumBowlingAverageWithBestStrikingRate_shouldReturnPlayer</td>
-<td class="success">0.173s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithMinimumStrikingRateWith4WktsAnd5Wkts_shouldreturnPlayer</td>
-<td class="success">0.138s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithMinimumWicketsWithWorstBowlingAverage_shouldReturnPlay</td>
-<td class="success">0.207s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithTopBowlingAvearge_shouldReturnPlayer</td>
-<td class="success">0.136s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithTopEconomy_shouldreturnPlayer</td>
-<td class="success">0.143s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithTopStrikingRateOfBowler_shouldReturnPlayer</td>
-<td class="success">0.136s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithWorstEconomy_shouldreturnPlayer</td>
-<td class="success">0.157s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithWorthBowlingAverage_shouldreturnPlayer</td>
-<td class="success">0.134s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenIPLWktsRecordFile_sortedWithWorthStrikingRateOfBowler_shouldReturnPlayer</td>
-<td class="success">0.139s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenLoadIPLRunsRecord_ifLoded_shouldReturnResult</td>
-<td class="success">0.123s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">givenLoadIPLWktsRecord_ifLoded_shouldReturnResult</td>
-<td class="success">0.160s</td>
-<td class="success">passed</td>
+<td class="failures">givenIPLRecordFile_sortedWithMostRunsAndHighWkts_shouldReturnPlayer</td>
+<td class="failures">0.503s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
 </div>
@@ -229,7 +153,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.2.1</a> at 24-Dec-2019, 6:31:44 PM</p>
+<a href="http://www.gradle.org">Gradle 5.2.1</a> at 26-Dec-2019, 9:22:12 AM</p>
 </div>
 </div>
 </body>
